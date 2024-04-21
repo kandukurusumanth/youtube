@@ -23,6 +23,7 @@ const  Videocontainer = ({snippet, id})=>{
 }
 const Video = ()=>{
     const [videos , setvideos] = useState([])
+    
     const rec = useSelector(state => state.recommodations.value)
     useEffect(()=>{
         getvideos();
@@ -35,7 +36,7 @@ const Video = ()=>{
         setvideos(jsondata.items)
     }
     
-    return videos.length===0 ? <Shimmer />: (
+    return videos.length==0 ? <Shimmer />: (
         <>
             <div className="flex flex-wrap">
 

@@ -1,7 +1,13 @@
+import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 const Ck = ()=>{
+    const sub= useSelector(state => state.subscription.items)
+    
+    useEffect(()=>{
+        
+    },[sub])
     return (
         <>
             <div className="col-span-2 p-2 m-2 ">

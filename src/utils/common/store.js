@@ -1,11 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import Toogleslice from "./toogleslice";
 import Buttonlistslice from "./buttonlistslice";
+import Suggestion from "../../component/Suggestion";
+import Subscriptionslice from "./subscriptionslice";
+import SuggestionSlice from './Suggestion-cache'
 
 const Store = configureStore({
     reducer:{
         toogle:Toogleslice,
-        recommodations:Buttonlistslice
+        recommodations:Buttonlistslice,
+        subscription:Subscriptionslice,
+        sug_cache:SuggestionSlice
     }
 })
 export default Store
