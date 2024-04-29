@@ -6,7 +6,7 @@ import Search from "../utils/common/search";
 import Newfun from "../utils/common/constant";
 import Suggestion from "./Suggestion";
 import { addsug } from "../utils/common/Suggestion-cache";
-
+import { generate } from "../utils/common/helper";
 const Header = ()=>{
     const dipacth = useDispatch();
     const selector = useSelector((state) => state.sug_cache.obj)
@@ -14,6 +14,7 @@ const Header = ()=>{
     const  [search,setsearch] = useState('new english trailer');
     const  [sug,setsug] = useState([])
     const   [show,setshow] = useState(false)
+    const [dive,setdive] = useState(false)
     const helper = (e)=>{
         
         setsearch(e.target.value)
@@ -64,10 +65,19 @@ const Header = ()=>{
             <div className="flex ">
                 <div>
                     <input type="text" className="m-2 p-2 rounded-lg bg-red-50"  onChange={(e) => helper(e) }
-                        onFocus={()=> setshow(true)}
-                        onBlur={()=> setshow(false)}
+                        onFocus={()=>{
+                            setshow(true)
+                        }}
+                        onBlur={()=>{
+                            setshow(false)
+                        }}
+                        
                      />
-                     {show && <div className=" w-96 h-30  bg-gray-50 shadow-xl rounded-md fixed">
+                     {show && <div className=" w-96 h-30  bg-gray-50 shadow-xl rounded-md fixed" onClick={()=>{
+                        console.log('data');
+                     }}
+                    
+                     >
                         <ul >
                            
                             
@@ -79,7 +89,8 @@ const Header = ()=>{
                                 })}
                         </ul>
                         
-                     </div>}
+                     </div>
+                     }
                 </div>
                 <div>
                     <button className="m-2 p-2 bg-green-300 rounded-xl  " onClick={()=> {
@@ -91,7 +102,9 @@ const Header = ()=>{
             </div>
             <div> 
                 <img className="h-10" alt="account"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl3frpE10aJYxmIpD02FmDbmubGHKyM-jmWrg0F8HDsA&s"/>            </div>
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl3frpE10aJYxmIpD02FmDbmubGHKyM-jmWrg0F8HDsA&s"/>          
+             </div>
+            
 
         </div>
     )
